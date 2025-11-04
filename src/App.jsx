@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Form from "./form.jsx";
-import List from "./List.jsx";
+import Form from "./Form";
+import List from "./List";
 import { WeatherProvider } from "./WeatherProvider.jsx";
 
 function App() {
