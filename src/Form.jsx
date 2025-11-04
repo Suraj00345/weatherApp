@@ -12,40 +12,23 @@ const Form = () => {
   };
 
   return (
-    <div className="p-4">
-      <form
-        onSubmit={handleSubmit}
-        className="flex  items-center justify-center"
-      >
-        <label
-          htmlFor="city"
-          className="text-blue-800 text-2xl font-bold m-4 text-center"
-        >
-          Enter City Name:
-        </label>
-
+    <div className="w-full max-w-md px-4 mt-8">
+      <div className="relative">
         <input
-          onChange={(e) => setCity(e.target.value)}
-          value={city}
           type="text"
-          id="city"
-          name="city"
-          className="m-4 p-2 border-2 bg-green-700 rounded text-white text-center"
-          placeholder="Enter your city here"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
+          placeholder="Enter city name..."
+          className="w-full px-6 py-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl text-white placeholder-white/60 text-lg focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400/50 transition-all shadow-lg"
         />
-
         <button
-          type="submit"
-          disabled={!city.trim()}
-          className={`font-bold p-2 rounded ${
-            city.trim()
-              ? "bg-amber-700 hover:bg-amber-800"
-              : "bg-gray-400 cursor-not-allowed"
-          }`}
+          onClick={handleSubmit}
+          className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
         >
-          Get Weather
+          Search
         </button>
-      </form>
+      </div>
     </div>
   );
 };

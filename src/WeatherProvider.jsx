@@ -1,6 +1,6 @@
 import React, { useState, createContext } from "react";
 
-// ✅ Create and export context
+// Create and export context
 export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
@@ -8,7 +8,7 @@ export const WeatherProvider = ({ children }) => {
   const [weatherList, setWeatherList] = useState([]); // store multiple cities
   const [error, setError] = useState("");
 
-  // ✅ Fetch weather data
+  // Fetch weather data
   const fetchWeather = async (cityName) => {
     try {
       setError("");
@@ -24,7 +24,7 @@ export const WeatherProvider = ({ children }) => {
 
       const data = await response.json();
 
-      // ✅ Avoid duplicates
+      // Avoid duplicates
       const exists = weatherList.find(
         (item) => item.name.toLowerCase() === data.name.toLowerCase()
       );
